@@ -33,7 +33,7 @@ public class Main {
 	    char[] egnArray = egn.toCharArray();
 	    
 	    
-	    System.out.println("You were born in"  + " " + getMonth(egn) + " " +  getYear(egn, egnArray)) ;
+	    System.out.println("You were born on"  + " " + getDate(egn) + " " +getMonth(egn) + " " +  getYear(egn, egnArray)) ;
 	    
 	    
 	}  
@@ -41,6 +41,18 @@ public class Main {
 
 
     } // **
+    
+    
+    private static String getDate(String egn) {
+  	String date = egn.substring(4,6);
+  	int dateInt = Integer.parseInt(date);
+  	if(dateInt<1  || dateInt>31) {
+  	throw new IllegalArgumentException("Date must be between 1 and 31");
+  	} else {
+  	return date;
+  	}
+      }
+
 
     private static String getMonth(String egn) {
 	String monthPart = egn.substring(2,4); //2 and 3 index
