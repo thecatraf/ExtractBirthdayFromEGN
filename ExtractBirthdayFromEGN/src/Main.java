@@ -33,7 +33,7 @@ public class Main {
 	    char[] egnArray = egn.toCharArray();
 	    
 	    
-	    System.out.println("You were born on"  + " " + getDate(egn) + " " +getMonth(egn) + " " +  getYear(egn, egnArray)) ;
+	    System.out.println("You were born on"  + " " + getDate(egn) + getEndingOfDate(egn) + " " +getMonth(egn) + " " +  getYear(egn, egnArray)) ;
 	    
 	    
 	}  
@@ -42,6 +42,20 @@ public class Main {
 
     } // **
     
+    private static String getEndingOfDate(String egn) {
+   	String endingOfDate = "";
+   	int day = Integer.parseInt(getDate(egn));
+   	if(day==1 || day==21 || day==31 ) {
+   	endingOfDate = "st";
+   	} else if (day == 2 || day == 22) {
+   	endingOfDate = "nd";
+   	} else if (day == 3 || day == 23) {
+   	endingOfDate = "rd";
+   	} else {
+   	endingOfDate = "th";
+   	}
+   	return endingOfDate;
+       }
     
     private static String getDate(String egn) {
   	String date = egn.substring(4,6);
